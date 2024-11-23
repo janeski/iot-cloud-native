@@ -17,7 +17,13 @@ var iotdb = timescale.AddDatabase(iotdbName);
 var apiService = builder.AddProject<Projects.MJA_CloudNative_IIoTStarter_ApiService>("apiservice")
     .WithReference(iotdb)
     .WaitFor(iotdb);
-    
+
+builder.AddNpmApp("web", "../MJA.CloudNative.IIoTStarter.Web")
+    .WithReference(apiService)
+    .WaitFor(apiService)
+    .WithHttpEndpoint(env: "PORT")
+    .WithExternalHttpEndpoints()
+    .PublishAsDockerFile();
 
 //builder.AddProject<Projects.MJA_CloudNative_IIoTStarter_Web>("webfrontend")
 //    .WithExternalHttpEndpoints()
