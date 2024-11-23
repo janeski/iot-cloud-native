@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJA.CloudNative.IIoTStarter.AppHost", "source\MJA.CloudNative.IIoTStarter.AppHost\MJA.CloudNative.IIoTStarter.AppHost.csproj", "{7E0B79D5-ACB2-4CF0-AF21-F47673C66DBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJA.CloudNative.IIoTStarter.ServiceDefaults", "source\MJA.CloudNative.IIoTStarter.ServiceDefaults\MJA.CloudNative.IIoTStarter.ServiceDefaults.csproj", "{1087D72B-77BB-444F-9461-B835EC640904}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJA.CloudNative.IIoTStarter.ApiService", "source\MJA.CloudNative.IIoTStarter.ApiService\MJA.CloudNative.IIoTStarter.ApiService.csproj", "{FB03A7BA-7A9E-4F74-A7BF-D1A8999685D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2BFA9F07-4B67-4A41-BBA7-5B3940512D71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJA.CloudNative.IIoTStarter.Tests", "tests\MJA.CloudNative.IIoTStarter.Tests\MJA.CloudNative.IIoTStarter.Tests.csproj", "{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E0B79D5-ACB2-4CF0-AF21-F47673C66DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0B79D5-ACB2-4CF0-AF21-F47673C66DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0B79D5-ACB2-4CF0-AF21-F47673C66DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0B79D5-ACB2-4CF0-AF21-F47673C66DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1087D72B-77BB-444F-9461-B835EC640904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1087D72B-77BB-444F-9461-B835EC640904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1087D72B-77BB-444F-9461-B835EC640904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1087D72B-77BB-444F-9461-B835EC640904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB03A7BA-7A9E-4F74-A7BF-D1A8999685D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB03A7BA-7A9E-4F74-A7BF-D1A8999685D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB03A7BA-7A9E-4F74-A7BF-D1A8999685D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB03A7BA-7A9E-4F74-A7BF-D1A8999685D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62} = {2BFA9F07-4B67-4A41-BBA7-5B3940512D71}
+	EndGlobalSection
+EndGlobal
