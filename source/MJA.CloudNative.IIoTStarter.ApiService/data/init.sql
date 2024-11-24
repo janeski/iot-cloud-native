@@ -23,7 +23,7 @@ SELECT
     (RANDOM() - 0.5) * 0.5                                -- Add some noise
 FROM 
     generate_series(
-        NOW() - INTERVAL '7 days',  -- Start time
+        NOW() - INTERVAL '1 day',  -- Start time
         NOW(),                      -- End time
         INTERVAL '1 minute'         -- Resolution
     ) AS gs;

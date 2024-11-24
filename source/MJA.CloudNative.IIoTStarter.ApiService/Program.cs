@@ -11,6 +11,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddControllers();
 
+builder.AddNpgsqlDataSource("iotdb");
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

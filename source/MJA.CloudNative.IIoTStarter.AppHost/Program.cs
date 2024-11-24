@@ -14,13 +14,14 @@ var timescale = builder.AddPostgres("timescale")
 
 var iotdb = timescale.AddDatabase(iotdbName);
 
-var apiService = builder.AddProject<Projects.MJA_CloudNative_IIoTStarter_ApiService>("apiservice")
+var api = builder.AddProject<Projects.MJA_CloudNative_IIoTStarter_ApiService>("api")
     .WithReference(iotdb)
-    .WaitFor(iotdb);
+    .WaitFor(iotdb)
+    .WithExternalHttpEndpoints();
 
-builder.AddNpmApp("web", "../MJA.CloudNative.IIoTStarter.Web")
-    .WithReference(apiService)
-    .WaitFor(apiService)
+builder.AddNpmApp("Web", "../MJA.CloudNative.IIoTStarter.Web")
+    .WithReference(api)
+    .WaitFor(api)
     .WithHttpEndpoint(env: "PORT")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();

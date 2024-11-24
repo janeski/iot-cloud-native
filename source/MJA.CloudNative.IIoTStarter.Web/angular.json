@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "weather": {
+    "iot": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/weather",
+            "outputPath": "dist/iot",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -60,11 +60,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "weather:build:production"
+              "buildTarget": "iot:build:production"
             },
             "development": {
-              "buildTarget": "weather:build:development"
-            }
+              "buildTarget": "iot:build:development"
+          }
           },
           "defaultConfiguration": "development",
           "options": {
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "weather:build"
+            "buildTarget": "iot:build"
           }
         },
         "test": {

@@ -2,7 +2,8 @@ import { Component, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { WeatherForecasts } from '../types/weatherForecast';
+import { SmartMeterMeasurements } from '../types/smartMeterMeasurement';
+
 
 @Injectable()
 @Component({
@@ -13,11 +14,11 @@ import { WeatherForecasts } from '../types/weatherForecast';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'weather';
-  forecasts: WeatherForecasts = [];
+  title = 'Smart Meter SM_001';
+  forecasts: SmartMeterMeasurements = [];
 
   constructor(private http: HttpClient) {
-    http.get<WeatherForecasts>('api/weatherforecast').subscribe({
+    http.get<SmartMeterMeasurements>('api/history/SM_001').subscribe({
       next: result => this.forecasts = result,
       error: console.error
     });
