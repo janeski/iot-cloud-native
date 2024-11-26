@@ -26,7 +26,7 @@ namespace MJA.CloudNative.IIoTStarter.ApiService.Controllers
             var result = new List<SmartMeterMeasurement>();
 
             await _iotdb.OpenAsync();
-            using (var cmd = new NpgsqlCommand("SELECT id, smartmetername, time, measurement FROM smart_meter_measurement WHERE smartmetername = @smartMeterName", _iotdb))
+            using (var cmd = new NpgsqlCommand("SELECT id, smartmetername, time, measurement FROM smart_meter_measurement WHERE smartmetername = @smartMeterName order by time asc", _iotdb))
             {
                 cmd.Parameters.AddWithValue("smartMeterName", smartMeterName);
 

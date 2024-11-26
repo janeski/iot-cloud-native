@@ -1,15 +1,23 @@
 <main class="main">
   <div class="content">
      
+    <div>
     <div style="display: block;">
       <canvas baseChart width="1850" height="400"
         [type]="'line'"
         [data]="lineChartData"
         [options]="lineChartOptions"
         [legend]="lineChartLegend">
-      </canvas>
+      </canvas>  
     </div>
-    
+
+    <div style="display: block;">
+      <h3>Latest Value of SM_001:</h3>
+      <p>{{ latestValue }}</p>
+      <p>{{ latestTime }}</p>
+    </div>
+  </div>
+  
   </div>
 </main>
 <router-outlet></router-outlet>

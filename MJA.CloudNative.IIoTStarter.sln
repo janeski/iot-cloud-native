@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2BFA9F07
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJA.CloudNative.IIoTStarter.Tests", "tests\MJA.CloudNative.IIoTStarter.Tests\MJA.CloudNative.IIoTStarter.Tests.csproj", "{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJA.CloudNative.IIoTStarter.MqttClient", "source\MJA.CloudNative.IIoTStarter.MqttClient\MJA.CloudNative.IIoTStarter.MqttClient.csproj", "{76FCA49C-A849-4C13-96C8-183D8315ADF5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,10 +34,6 @@ Global
 		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F46BA1E-D8A0-484C-A9EB-AFAF889F6B62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76FCA49C-A849-4C13-96C8-183D8315ADF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76FCA49C-A849-4C13-96C8-183D8315ADF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76FCA49C-A849-4C13-96C8-183D8315ADF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76FCA49C-A849-4C13-96C8-183D8315ADF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

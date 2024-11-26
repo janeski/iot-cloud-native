@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { SmartMeterMeasurements } from '../types/smartMeterMeasurement';
 import Chart, { ChartConfiguration, ChartOptions } from 'chart.js/auto';
 import { BaseChartDirective } from 'ng2-charts';
+import { SignalRService } from './signalr.service';
+
 
 @Injectable()
 @Component({
@@ -18,22 +20,18 @@ export class AppComponent implements OnInit {
 
   @ViewChild(BaseChartDirective)
   chart!: BaseChartDirective;
+  latestValue: number;
+  latestTime: string;
   
   smartMeterMeasurements: SmartMeterMeasurements = [];
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July'
+     
     ],
     datasets: [
       {
-        data: [ 65, 59, 80, 81, 56, 55, 40 ],
+        data: [ ],
         label: 'SM_001',
         fill: true,
         tension: 0.5,
@@ -47,22 +45,33 @@ export class AppComponent implements OnInit {
   };
   public lineChartLegend = true;
 
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, private signalRService: SignalRService) {
+    this.latestValue = 0;
+    this.latestTime = ''; 
 
   }
 
   ngOnInit(): void {
+    this.FetchHistoryData();
+
+    this.signalRService.messageReceived.subscribe(message => {
+      this.latestValue = message.measurement;
+      this.latestTime = new Date(message.time).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false })
+      this.FetchHistoryData();
+
+    });
+  }
+
+
+  private FetchHistoryData() {
     this.http.get<SmartMeterMeasurements>('api/history/SM_001').subscribe({
       next: result => {
         this.smartMeterMeasurements = result;
-        this.lineChartData.labels = this.smartMeterMeasurements.map(smartMeterMeasurement => new Date(smartMeterMeasurement.time).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false }));
-        this.lineChartData.datasets[0].data = this.smartMeterMeasurements.map(smartMeterMeasurement => smartMeterMeasurement.measurement); 
-        console.log(this.lineChartData.labels);
+        this.lineChartData.labels = this.smartMeterMeasurements.map(smartMeterMeasurement => new Date(smartMeterMeasurement.time).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false }));
+        this.lineChartData.datasets[0].data = this.smartMeterMeasurements.map(smartMeterMeasurement => smartMeterMeasurement.measurement);
         this?.chart?.chart?.update();
       },
       error: console.error
     });
   }
-
 }

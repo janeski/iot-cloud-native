@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MJA.CloudNative.IIoTStarter.ApiService\MJA.CloudNative.IIoTStarter.ApiService.csproj" />
-    <ProjectReference Include="..\MJA.CloudNative.IIoTStarter.MqttClient\MJA.CloudNative.IIoTStarter.MqttClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>

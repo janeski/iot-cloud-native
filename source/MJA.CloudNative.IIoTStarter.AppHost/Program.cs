@@ -32,9 +32,4 @@ builder.AddNpmApp("Web", "../MJA.CloudNative.IIoTStarter.Web")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();
 
-//var mqttclient = builder.AddProject<Projects.MJA_CloudNative_IIoTStarter_MqttClient>("mqttclient")
-//    .WithReference(iotdb)
-//    .WaitFor(iotdb)
-//    .WaitFor(mqtt);
-
 builder.Build().Run();

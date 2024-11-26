@@ -86,9 +86,9 @@ namespace MJA.CloudNative.IIoTStarter.ApiService
             };
         }
 
-        private async Task  HandleIncomingMessageAsync(string topic, SmartMeterMeasurement payload)
+        private async Task  HandleIncomingMessageAsync(string meter, SmartMeterMeasurement payload)
         {
-            await _hubContext.Clients.All.SendAsync("ReceiveMqttMessage", topic, payload);
+            await _hubContext.Clients.All.SendAsync("ReceiveMqttMessage", meter, payload);
 
             await _iotdb.OpenAsync();
 
