@@ -38,8 +38,8 @@ namespace MJA.CloudNative.IIoTStarter.ApiService.Controllers
                         {
                             Id = reader.GetGuid(0),
                             SmartMeterName = reader.GetString(1),
-                            Timestamp = reader.GetDateTime(2),
-                            Value = reader.GetDouble(3)
+                            Time = reader.GetDateTime(2),
+                            Measurement = reader.GetDouble(3)
                         });
                     }
                 }

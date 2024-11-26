@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MJA.CloudNative.IIoTStarter.MqttClient": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -1,26 +1,15 @@
 <main class="main">
   <div class="content">
      
-      <h1>{{ title }}</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let forecast of forecasts; index as i;">
-            <td>{{forecast.date}}</td>
-              <td>{{forecast.temperatureC}}</td>
-              <td>{{forecast.temperatureF}}</td>
-              <td>{{forecast.summary}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div> 
-
+    <div style="display: block;">
+      <canvas baseChart width="1850" height="400"
+        [type]="'line'"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [legend]="lineChartLegend">
+      </canvas>
+    </div>
+    
+  </div>
 </main>
 <router-outlet></router-outlet>

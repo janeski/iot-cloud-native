@@ -25,5 +25,5 @@ FROM
     generate_series(
         NOW() - INTERVAL '1 day',  -- Start time
         NOW(),                      -- End time
-        INTERVAL '1 minute'         -- Resolution
+        INTERVAL '30 minute'         -- Resolution
     ) AS gs;

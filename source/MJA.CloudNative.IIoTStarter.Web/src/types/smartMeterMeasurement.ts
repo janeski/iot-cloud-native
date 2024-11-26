@@ -1,8 +1,8 @@
 export interface SmartMeterMeasurement {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+    time: Date;
+    measurement: number;
+    smartMeterName: string;
+    guid: string;
 }
 
 export type SmartMeterMeasurements = SmartMeterMeasurement[];

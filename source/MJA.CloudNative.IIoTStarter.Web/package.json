@@ -23,6 +23,9 @@
     "@angular/platform-browser": "^18.1.1",
     "@angular/platform-browser-dynamic": "^18.1.1",
     "@angular/router": "^18.1.1",
+    "@microsoft/signalr": "^8.0.7",
+    "chart.js": "^4.4.6",
+    "ng2-charts": "^6.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.3",
     "zone.js": "~0.14.8"
@@ -38,7 +41,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.5.3",
-    "run-script-os": "^1.1.6"
+    "run-script-os": "^1.1.6",
+    "typescript": "~5.5.3"
   }
 }
