@@ -24,6 +24,12 @@
     <PackageReference Include="Aspire.Npgsql" Version="9.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="mqtt\mosquitto.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 	<Target Name="RestoreNpm" BeforeTargets="Build" Condition=" '$(DesignTimeBuild)' != 'true' ">
 		<ItemGroup>
 			<PackageJsons Include="..\*\package.json" />

@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.SignalR;
@@ -6,23 +7,27 @@ using MJA.CloudNative.IIoTStarter.ApiService.Hubs;
 using MJA.CloudNative.IIoTStarter.ApiService.Models;
 using MQTTnet;
 using MQTTnet.Client;
-using MQTTnet.Internal;
 using Npgsql;
 
 namespace MJA.CloudNative.IIoTStarter.ApiService
 {
     public class MqttSubscriberService : BackgroundService
     {
+        private readonly ILogger<MqttSubscriberService> _logger;
         private IMqttClient _mqttClient;
         private MqttClientOptions _options;
         private readonly IHubContext<IoTHub> _hubContext;
         private readonly NpgsqlConnection _iotdb;
+        private readonly string _mqttBrokerUrl;
 
-        public MqttSubscriberService(IHubContext<IoTHub> hubContext, NpgsqlConnection iotdb)
+        public MqttSubscriberService(IHubContext<IoTHub> hubContext, NpgsqlConnection iotdb, ILogger<MqttSubscriberService> logger, IConfiguration configuration)
         {
-            InitializeMqttClient();
             _hubContext = hubContext;
             _iotdb = iotdb;
+            _logger = logger;
+            var myUri = new Uri(configuration["services:mqtt:mqttBroker:0"]);
+            _mqttBrokerUrl = myUri.Host;
+            InitializeMqttClient();
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -50,7 +55,7 @@ namespace MJA.CloudNative.IIoTStarter.ApiService
 
             _options = new MqttClientOptionsBuilder()
                 .WithClientId("IoTClient")
-                .WithTcpServer("localhost", 1883)
+                .WithTcpServer(_mqttBrokerUrl, 1883)
                 .WithCleanSession()
                 .Build();
 
@@ -73,7 +78,7 @@ namespace MJA.CloudNative.IIoTStarter.ApiService
                 }
                 catch (Exception ex)
                 {
-         
+
                 }
             };
 
@@ -82,11 +87,12 @@ namespace MJA.CloudNative.IIoTStarter.ApiService
                 var topic = e.ApplicationMessage.Topic;
                 var payload = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
                 var smartMeterMeasurement = JsonSerializer.Deserialize<SmartMeterMeasurement>(payload);
+                _logger.LogInformation($"Background MQTT Subscriber got a new message:{smartMeterMeasurement.Measurement} {smartMeterMeasurement.Time}");
                 await HandleIncomingMessageAsync("SM_001", smartMeterMeasurement);
             };
         }
 
-        private async Task  HandleIncomingMessageAsync(string meter, SmartMeterMeasurement payload)
+        private async Task HandleIncomingMessageAsync(string meter, SmartMeterMeasurement payload)
         {
             await _hubContext.Clients.All.SendAsync("ReceiveMqttMessage", meter, payload);
 

@@ -3,20 +3,17 @@ using MJA.CloudNative.IIoTStarter.ApiService.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
 
 builder.Services.AddSignalR().AddNamedAzureSignalR("signalr");
 
-// Add services to the container.
+builder.AddNpgsqlDataSource("iotdb");
+
 builder.Services.AddProblemDetails();
 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 builder.Services.AddControllers();
-
-builder.AddNpgsqlDataSource("iotdb");
 
 builder.Services.AddHostedService<MqttSubscriberService>();
 

@@ -10,11 +10,10 @@ import { SignalRService } from './signalr.service';
 
 @Injectable()
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, BaseChartDirective],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [CommonModule, RouterOutlet, BaseChartDirective],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
 
