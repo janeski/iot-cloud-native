@@ -25,8 +25,8 @@ namespace MJA.CloudNative.IIoTStarter.ApiService
             _hubContext = hubContext;
             _iotdb = iotdb;
             _logger = logger;
-            var myUri = new Uri(configuration["services:mqtt:mqttBroker:0"]);
-            _mqttBrokerUrl = myUri.Host;
+            var mqttBrokerUri = new Uri(configuration["services:mqtt:mqttBroker:0"]);
+            _mqttBrokerUrl = mqttBrokerUri.Host;
             InitializeMqttClient();
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
