@@ -1,9 +1,15 @@
 
+using Aspire.Hosting;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var mqtt = builder.AddContainer("mqtt", "eclipse-mosquitto", "latest")
-    .WithBindMount("mqtt/mosquitto.conf", "/mosquitto/config/mosquitto.conf")
+//var mqtt = builder.AddContainer("mqtt", "eclipse-mosquitto", "latest")
+//    .WithBindMount("mqtt/mosquitto.conf", "/mosquitto/config/mosquitto.conf")
+//    .WithEndpoint(port: 1883, targetPort: 1883, scheme: "tcp", env: "MQTT_SERVER_PORT", name: "mqttBroker");
+
+var mqtt = builder.AddDockerfile("mqtt", "mqtt/")
     .WithEndpoint(port: 1883, targetPort: 1883, scheme: "tcp", env: "MQTT_SERVER_PORT", name: "mqttBroker");
+
 
 var mqttBroker = mqtt.GetEndpoint("mqttBroker");
 

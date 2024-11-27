@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS smart_meter_measurement
 
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 SELECT create_hypertable('smart_meter_measurement', by_range('time'));
 
 -- Insert random sinusoidal values into smart_meter_measurement table

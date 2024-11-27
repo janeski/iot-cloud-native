@@ -2,15 +2,11 @@
   "$schema": "https://json.schemastore.org/aspire-8.0.json",
   "resources": {
     "mqtt": {
-      "type": "container.v0",
-      "image": "eclipse-mosquitto:latest",
-      "bindMounts": [
-        {
-          "source": "mqtt/mosquitto.conf",
-          "target": "/mosquitto/config/mosquitto.conf",
-          "readOnly": false
-        }
-      ],
+      "type": "container.v1",
+      "build": {
+        "context": "mqtt/",
+        "dockerfile": "mqtt/Dockerfile"
+      },
       "env": {
         "MQTT_SERVER_PORT": "{mqtt.bindings.mqttBroker.targetPort}"
       },
