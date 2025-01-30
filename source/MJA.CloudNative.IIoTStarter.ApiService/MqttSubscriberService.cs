@@ -1,13 +1,11 @@
-﻿
-using System.ComponentModel;
-using System.Text;
-using System.Text.Json;
-using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 using MJA.CloudNative.IIoTStarter.ApiService.Hubs;
 using MJA.CloudNative.IIoTStarter.ApiService.Models;
 using MQTTnet;
 using MQTTnet.Client;
 using Npgsql;
+using System.Text;
+using System.Text.Json;
 
 namespace MJA.CloudNative.IIoTStarter.ApiService
 {
