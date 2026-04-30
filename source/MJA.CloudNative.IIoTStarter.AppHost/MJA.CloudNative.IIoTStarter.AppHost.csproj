@@ -21,6 +21,8 @@
     <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.0.0" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.0.0" />
     <PackageReference Include="Aspire.Npgsql" Version="9.0.0" />
+  <PackageReference Include="KubernetesClient" Version="17.0.14" />
+  <PackageReference Include="OpenTelemetry.Api" Version="1.15.3" />
   </ItemGroup>
 
   <ItemGroup>
